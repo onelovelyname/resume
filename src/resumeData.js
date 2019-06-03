@@ -1,6 +1,5 @@
 let resumeData = {
-  "imagebaseurl":"https://techonoeticsclub.github.io/",
-  "name": "John Doe",
+  "name": "Salar Sjdeya",
   "role": "Frontend Developer",
   "linkedinId":"Your LinkedIn Id",
   "skypeid": "Your skypeid",
@@ -103,4 +102,5 @@ let resumeData = {
   ]
 }
 
+// "imagebaseurl", "name", "role", "linkedinId", "skypeid", "roleDescription", "socialLinks", "aboutme", "address", "website", "education", "work", "skillsDescription", "skills", "portfolio", "testimonials" 
 export default resumeData
