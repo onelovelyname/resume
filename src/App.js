@@ -35,12 +35,14 @@ class App extends Component {
     };
 
     this.state = {...DEFAULT_VARS, ...resumeData};
+    this.handleSubmit = this.handleSubmit.bind(this);
 
     console.log('this.state', JSON.stringify(this.state));
   }
 
   handleSubmit(data) {
     console.log("calling handleSubmit from parent: ", data);
+    this.setState(data);
   }
 
   render() {
@@ -50,6 +52,7 @@ class App extends Component {
       <div className="App">
         <Header
           name={this.state.name}
+          lastName={this.state.lastName}
           role={this.state.role}
           roleDescription={this.state.roleDescription}
           socialLinks={this.state.socialLinks}
