@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
+const fs = require('fs');
+
 export default class Form extends Component {
 
-  constructor () {
-    super();
-    this.state = {
+  constructor(props) {
+    super(props);
+
+    this.handleChange = this.handleChange.bind(this);
+
+    const DEFAULT_VARS = {
       name: '',
       lastName: '',
       role: '',
@@ -15,14 +20,16 @@ export default class Form extends Component {
       address: '',
       website: '',
       education: '',
-      work: '', 
+      portfolio: '',
+      work: '',
       skillsDescription: '',
       skills: '',
       testimonials: '',
-
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+
+    this.state = {...DEFAULT_VARS, ...props.data};
+
+    // this.handleSubmit = this.handleSubmit.bind(this);
   }
   
   handleChange (evt) {
@@ -31,35 +38,44 @@ export default class Form extends Component {
     this.setState({ [evt.target.name]: evt.target.value });
   }
 
-  handleSubmit(evt) {
-    evt.preventDefault();
-  	var {
-  	  name,
-      lastName,
-      role,
-      linkedInId,
-      skypeId,
-      roleDescription,
-      socialLinks,
-      aboutMe,
-      address,
-      website,
-      education,
-      work,
-      skillsDescription,
-      skills,
-      testimonials
-  	} = this.state;
-
-  	console.log(JSON.stringify(this.state));
-
-  }
+  // handleSubmit(evt) {
+  //   evt.preventDefault();
+  // 	var {
+  // 	  name,
+  //     lastName,
+  //     role,
+  //     linkedInId,
+  //     skypeId,
+  //     roleDescription,
+  //     socialLinks,
+  //     aboutMe,
+  //     address,
+  //     website,
+  //     education,
+  //     work,
+  //     skillsDescription,
+  //     skills,
+  //     testimonials
+  // 	} = this.state;
+  //
+  // 	const jsonString = JSON.stringify(this.state);
+  //
+  // 	console.log(jsonString);
+  //   fs.writeFile('../../data.json', jsonString, err => {
+  //     if (err) {
+  //       console.log('Error writing file', err)
+  //     } else {
+  //       console.log('Successfully wrote file')
+  //     }
+  //   })
+  //
+  // }
 
 
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.props.handleSubmit(this.state)}>
         <label>
           Name:
           <input type="text" name="name" onChange={this.handleChange} />
