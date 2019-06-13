@@ -51,7 +51,7 @@ export default class Form extends Component {
       testimonials
   	} = this.state;
 
-  	console.log(name);
+  	console.log(JSON.stringify(this.state));
 
   }
 
