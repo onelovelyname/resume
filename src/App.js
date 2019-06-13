@@ -8,8 +8,19 @@ import ContactUs from './components/contactus/contactus';
 import Footer from './components/footer/footer';
 import resumeData from './resumeData';
 import Form from './components/form/form'
+//import MyVerticallyCenteredModal from './components/modal/modal'
+import Button from 'react-bootstrap/Button'
+import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
+
 class App extends Component {
+  constructor(...args) {
+    super(...args);
+    this.state = { modalShow: false };
+  }
+
   render() {
+    let modalClose = () => this.setState({ modalShow: false });
+
     return (
       <div className="App">
         <Header resumeData={resumeData}/>
