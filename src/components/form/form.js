@@ -1,26 +1,11 @@
 import React, { Component } from 'react';
+
 export default class Form extends Component {
 
-  constructor () {
-    super();
-    this.state = {
-      Name: '',
-      LastName: '',
-      role: '',
-      linkedinld: '', 
-      skypeid: '',
-      roleDescription: '',
-      socialLInks: '',
-      aboutme: '',
-      adress: '', 
-      website: '',
-      education: '',
-      work: '', 
-      skillsDescription: '',
-      skills: '',
-      testimonials: '',
+  constructor(props) {
+    super(props);
+    this.state = {...props.data};
 
-    };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -30,56 +15,55 @@ export default class Form extends Component {
     // and use it to target the key on our `state` object with the same name, using bracket syntax
     this.setState({ [evt.target.name]: evt.target.value });
   }
+
   handleSubmit(evt) {
-  	console.log(this.state.value);
-  	alert(this.state.value);
+    evt.preventDefault();
+    this.props.handleSubmit(this.state);
   }
-
-
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
           Name:
-          <input type="text" name="Name" onChange={this.handleChange} />
+          <input type="text" name="name" onChange={this.handleChange} />
         </label>
         <label>
-          LastName:
-          <input type="text" name="LastName" onChange={this.handleChange} />
+          Last Name:
+          <input type="text" name="lastName" onChange={this.handleChange} />
         </label>
         <label>
-          role:
+          Role:
           <input type="text" name="role" onChange={this.handleChange} />
         </label><label>
-          linkedinld:
-          <input type="text" name="linkedinld" onChange={this.handleChange} />
+          Linkedin Id:
+          <input type="text" name="linkedInId" onChange={this.handleChange} />
         </label><label>
-          skypeid:
-          <input type="text" name="skypeid" onChange={this.handleChange} />
+          Skype id:
+          <input type="text" name="skypeId" onChange={this.handleChange} />
         </label><label>
-          roleDescription:
+          Role Description:
           <input type="text" name="roleDescription" onChange={this.handleChange} />
         </label><label>
-          socialLInks:
-          <input type="text" name="socialLInks" onChange={this.handleChange} />
+          Social Links:
+          <input type="text" name="socialLinks" onChange={this.handleChange} />
         </label><label>
-          Aboutme:
-          <input type="text" name="aboutme" onChange={this.handleChange} />
+          About Me:
+          <input type="text" name="aboutMe" onChange={this.handleChange} />
         </label><label>
-          Adress:
-          <input type="text" name="adress" onChange={this.handleChange} />
+          Address:
+          <input type="text" name="address" onChange={this.handleChange} />
         </label><label>
-          website:
+          Website:
           <input type="text" name="website" onChange={this.handleChange} />
         </label><label>
-          education:
+          Education:
           <input type="text" name="education" onChange={this.handleChange} />
         </label><label>
-          work:
+          Work:
           <input type="text" name="work" onChange={this.handleChange} />
         </label><label>
-          skillsDescription:
+          Skills Description:
           <input type="text" name="skillsDescription" onChange={this.handleChange} />
         </label>
         <label>
