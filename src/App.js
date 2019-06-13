@@ -40,7 +40,7 @@ class App extends Component {
   }
 
   handleSubmit(data) {
-    this.setState(...data);
+    console.log("calling handleSubmit from parent: ", data);
   }
 
   render() {
@@ -78,10 +78,10 @@ class App extends Component {
         <Footer
           socialLinks={this.state.socialLinks}
         />
-        {/*<Form*/}
-          {/*data={this.state}*/}
-          {/*handleSubmit={this.handleSubmit}*/}
-        {/*/>*/}
+        <Form
+          data={this.state}
+          handleSubmit={this.handleSubmit}
+        />
       </div>
     );
   }

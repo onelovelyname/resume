@@ -8,74 +8,29 @@ export default class Form extends Component {
 
     this.handleChange = this.handleChange.bind(this);
 
-    const DEFAULT_VARS = {
-      name: '',
-      lastName: '',
-      role: '',
-      linkedInId: '',
-      skypeId: '',
-      roleDescription: '',
-      socialLinks: '',
-      aboutMe: '',
-      address: '',
-      website: '',
-      education: '',
-      portfolio: '',
-      work: '',
-      skillsDescription: '',
-      skills: '',
-      testimonials: '',
-    };
-
-    this.state = {...DEFAULT_VARS, ...props.data};
-
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {...props.data};
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   
   handleChange (evt) {
     // check it out: we get the evt.target.name (which will be either "email" or "password")
     // and use it to target the key on our `state` object with the same name, using bracket syntax
     this.setState({ [evt.target.name]: evt.target.value });
+    console.log("handling change in form for event target name: ", evt.target.name);
   }
 
-  // handleSubmit(evt) {
-  //   evt.preventDefault();
-  // 	var {
-  // 	  name,
-  //     lastName,
-  //     role,
-  //     linkedInId,
-  //     skypeId,
-  //     roleDescription,
-  //     socialLinks,
-  //     aboutMe,
-  //     address,
-  //     website,
-  //     education,
-  //     work,
-  //     skillsDescription,
-  //     skills,
-  //     testimonials
-  // 	} = this.state;
-  //
-  // 	const jsonString = JSON.stringify(this.state);
-  //
-  // 	console.log(jsonString);
-  //   fs.writeFile('../../data.json', jsonString, err => {
-  //     if (err) {
-  //       console.log('Error writing file', err)
-  //     } else {
-  //       console.log('Successfully wrote file')
-  //     }
-  //   })
-  //
-  // }
+  handleSubmit(evt) {
+    evt.preventDefault();
+    console.log("calling handleSubmit from child");
+    this.props.handleSubmit(this.state);
+
+  }
 
 
 
   render() {
     return (
-      <form onSubmit={this.props.handleSubmit(this.state)}>
+      <form onSubmit={this.handleSubmit}>
         <label>
           Name:
           <input type="text" name="name" onChange={this.handleChange} />
