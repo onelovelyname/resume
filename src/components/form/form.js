@@ -10,10 +10,10 @@ export default class Form extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   
-  handleChange (evt) {
+  handleChange (event) {
     // check it out: we get the evt.target.name (which will be either "email" or "password")
     // and use it to target the key on our `state` object with the same name, using bracket syntax
-    this.setState({ [evt.target.name]: evt.target.value });
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   handleSubmit(evt) {
@@ -44,10 +44,12 @@ export default class Form extends Component {
         </label><label>
           Role Description:
           <input type="text" name="roleDescription" onChange={this.handleChange} />
-        </label><label>
-          Social Links:
-          <input type="text" name="socialLinks" onChange={this.handleChange} />
-        </label><label>
+        </label>
+        {/*<label>*/}
+          {/*Social Links:*/}
+          {/*<input type="text" name="socialLinks" onChange={this.handleChange} />*/}
+        {/*</label>*/}
+        <label>
           About Me:
           <input type="text" name="aboutMe" onChange={this.handleChange} />
         </label><label>
@@ -56,24 +58,27 @@ export default class Form extends Component {
         </label><label>
           Website:
           <input type="text" name="website" onChange={this.handleChange} />
-        </label><label>
-          Education:
-          <input type="text" name="education" onChange={this.handleChange} />
-        </label><label>
-          Work:
-          <input type="text" name="work" onChange={this.handleChange} />
-        </label><label>
+        </label>
+        {/*<label>*/}
+          {/*Education:*/}
+          {/*<input type="text" name="education" onChange={this.handleChange} />*/}
+        {/*</label>*/}
+        {/*<label>*/}
+          {/*Work:*/}
+          {/*<input type="text" name="work" onChange={this.handleChange} />*/}
+        {/*</label>*/}
+        <label>
           Skills Description:
           <input type="text" name="skillsDescription" onChange={this.handleChange} />
         </label>
-        <label>
-          skills:
-          <input type="text" name="skills" onChange={this.handleChange} />
-        </label>
-        <label>
-          testimonials:
-          <input type="text" name="testimonials" onChange={this.handleChange} />
-        </label>
+        {/*<label>*/}
+          {/*skills:*/}
+          {/*<input type="text" name="skills" onChange={this.handleChange} />*/}
+        {/*</label>*/}
+        {/*<label>*/}
+          {/*testimonials:*/}
+          {/*<input type="text" name="testimonials" onChange={this.handleChange} />*/}
+        {/*</label>*/}
 
         <input type="submit" value="Submit" />
       </form>
